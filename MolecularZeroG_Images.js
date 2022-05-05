@@ -17,7 +17,7 @@ class Particle {
   constructor() {
     this.x = Math.random() * canvas.width;
     this.y = Math.random() * canvas.height;
-    this.radius = Math.random() * 30 + 4;
+    this.radius = Math.random() * 40 + 4;
     this.speedX = Math.random() * 3 - 1.5;
     this.speedY = Math.random() * 3 - 1.5;
     this.opacity = 1;
@@ -29,10 +29,10 @@ class Particle {
       0,
       imgWidth,
       imgHeight,
-      this.x,
+      this.x - this.radius * 2,
       this.y,
-      this.radius * 3,
-      this.radius * 3
+      this.radius * 4,
+      this.radius * 4
     );
   }
   update() {
@@ -72,26 +72,3 @@ window.addEventListener("resize", function () {
   particlesArray = [];
   init();
 });
-
-function connect() {
-  let opacityValue = 1;
-  // this function is all we need to replicate the particle.js library with vanilla JavaScript
-  for (let a = 0; a < particlesArray.length; a++) {
-    for (let b = a; b < particlesArray.length; b++) {
-      let dx = particlesArray[a].x - particlesArray[b].x;
-      let dy = particlesArray[a].y - particlesArray[b].y;
-      let distance = Math.sqrt(dx * dx + dy * dy);
-      let maxConnectedDistance = 200; // change this value if more and longer connected lines between the particles is desired
-
-      if (distance < maxConnectedDistance) {
-        opacityValue = 1 - distance / maxConnectedDistance;
-        ctx.strokeStyle = `rgba(20, 220, 220, ${opacityValue})`;
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(particlesArray[a].x - 50, particlesArray[a].y - 50);
-        ctx.lineTo(particlesArray[b].x - 50, particlesArray[b].y - 50);
-        ctx.stroke();
-      }
-    }
-  }
-}
