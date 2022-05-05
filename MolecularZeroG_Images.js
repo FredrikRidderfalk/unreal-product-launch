@@ -9,68 +9,31 @@ const particlesArray = [];
 
 // ------ IMAGE SETUP ------
 const img = new Image();
-img.src = "images/cube.png";
-const imgWidth = 512;
-const imgHeight = 512;
-
-const img2 = new Image();
-img2.src = "images/pyramid.png";
-const img2Width = 725;
-const img2Height = 571;
-
-const img3 = new Image();
-img3.src = "images/ball.png";
-const img3Width = 256;
-const img3Height = 243;
+img.src = "assets/cup.png";
+const imgWidth = 750;
+const imgHeight = 750;
 
 class Particle {
   constructor() {
     this.x = Math.random() * canvas.width;
     this.y = Math.random() * canvas.height;
-    this.radius = Math.random() * 10 + 4;
+    this.radius = Math.random() * 30 + 4;
     this.speedX = Math.random() * 3 - 1.5;
     this.speedY = Math.random() * 3 - 1.5;
     this.opacity = 1;
-    this.randomImg = Math.floor(Math.random() * 3 + 1);
   }
   draw() {
-    if (this.randomImg === 1) {
-      ctx.drawImage(
-        img,
-        0,
-        0,
-        imgWidth,
-        imgHeight,
-        this.x,
-        this.y,
-        this.radius * 3,
-        this.radius * 3
-      );
-    } else if (this.randomImg === 2) {
-      ctx.drawImage(
-        img2,
-        0,
-        0,
-        img2Width,
-        img2Height,
-        this.x,
-        this.y,
-        this.radius * 3,
-        this.radius * 3
-      );
-    } else {
-      ctx.drawImage(
-        img3,
-        0,
-        0,
-        img3Width,
-        img3Height,
-        this.x,
-        this.y,
-        this.radius * 3,
-        this.radius * 3
-      );
-    }
+    ctx.drawImage(
+      img,
+      0,
+      0,
+      imgWidth,
+      imgHeight,
+      this.x,
+      this.y,
+      this.radius * 3,
+      this.radius * 3
+    );
   }
   update() {
     this.x += this.speedX;
