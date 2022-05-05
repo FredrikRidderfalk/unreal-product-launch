@@ -12,21 +12,35 @@ body {
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    background-color: #e94143;
+    color: #fff;
 }
 
 h1 {
     font-size: 18rem;
+    font-family: 'Ubuntu', sans-serif;
+    letter-spacing: -1rem;
 }
 
 p {
     font-size: 1.6rem;
 }
 
+#canvasMolecularZeroG {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* opacity: 0.2; */
+}
+
 .container__title {
     border: 1px solid blue;
     width: fit-content;
+    align-self: center;
+    margin-inline: auto;
 }
 
 .title {
